@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>望东潮 RIVA VISTA SHANGHAI — 世界望见上海的第一眼</title>
+  <link rel="preload" as="image" href="assets/images/hero-relief-dark.jpg" />
+  <link rel="preload" as="image" href="assets/images/hero-golden.jpg" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap" />
+  <style>
+:root {
+  --color-wine: #6E2620;
+  --color-rose: #A85C58;
+  --color-olive: #7A6A43;
+  --color-ink: #2A1F0F;
+  --color-sage: #B9BFB2;
+  --color-cream: #F3EDE0;
+  --color-cream-deep: #EAE2D0;
+  --color-bg: var(--color-cream);
+  --color-bg-alt: var(--color-ink);
+  --color-text: var(--color-ink);
+  --color-text-light: var(--color-cream);
+  --color-accent: var(--color-wine);
+  --color-muted: rgba(42, 31, 15, 0.55);
+  --color-line: rgba(42, 31, 15, 0.12);
+  --color-line-light: rgba(243, 237, 224, 0.18);
+  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-brand: 'Cormorant SC', 'Playfair Display', Georgia, serif;
+  --font-serif-en: 'Cormorant Garamond', Georgia, serif;
+  --font-serif-cn: 'Noto Serif SC', 'Songti SC', serif;
+  --font-sans-cn: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --nav-height: 88px;
+  --container-max: 1440px;
+  --container-pad: 64px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.3s;
+  --dur-mid: 0.6s;
+  --dur-slow: 1.1s;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-serif-cn); font-weight: 400; color: var(--color-text); background-color: var(--color-bg); line-height: 1.7; overflow-x: hidden; }
+::selection { background: var(--color-wine); color: var(--color-cream); }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: color var(--dur-fast) var(--ease-out); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.en-display { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; line-height: 1.05; }
+.eyebrow { font-family: var(--font-brand); font-size: 12px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-wine); margin-bottom: 24px; display: inline-block; font-variant: small-caps; }
+.eyebrow-row { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.eyebrow-row .eyebrow { margin-bottom: 0; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--container-pad); transition: background-color var(--dur-mid) var(--ease-out), color var(--dur-mid) var(--ease-out), border-color var(--dur-mid) var(--ease-out); border-bottom: 1px solid transparent; }
+.nav.nav-dark { color: #ffffff; }
+.nav.is-scrolled { background-color: rgba(243, 237, 224, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom-color: var(--color-line); color: var(--color-text); }
+.nav.is-scrolled.nav-dark { background-color: rgba(42, 31, 15, 0.92); border-bottom-color: var(--color-line-light); color: var(--color-text-light); }
+.nav-logo { display: flex; align-items: center; gap: 12px; z-index: 2; height: 100%; }
+.nav-logo img { height: 64px; width: auto; object-fit: contain; transition: height var(--dur-mid) var(--ease-out); }
+.nav.is-scrolled .nav-logo img { height: 52px; }
+.nav.nav-dark .nav-logo img { filter: brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,0.1)); }
+.nav-links { display: flex; align-items: center; gap: 48px; list-style: none; }
+.nav-link { position: relative; font-size: 13px; font-family: var(--font-serif-cn); font-weight: 400; letter-spacing: 0.05em; cursor: pointer; padding: 8px 0; white-space: nowrap; }
+.nav-link-en { display: block; font-family: var(--font-brand); font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.6; margin-bottom: 3px; font-variant: small-caps; }
+.nav-link::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: currentColor; transition: width var(--dur-mid) var(--ease-out); }
+.nav-link:hover::after, .nav-link.is-active::after { width: 100%; }
+.hero { position: relative; width: 100%; height: 100vh; min-height: 720px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: var(--color-bg); cursor: crosshair; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center center; background-repeat: no-repeat; }
+.hero-canvas-overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.hero-content { position: relative; z-index: 3; text-align: center; padding: 0 var(--container-pad); width: 100%; max-width: var(--container-max); display: flex; flex-direction: column; align-items: center; gap: 56px; }
+.hero-logo-wrap { display: flex; align-items: center; justify-content: center; width: 100%; animation: heroFadeIn 1.4s var(--ease-out) both; }
+.hero-logo { max-width: min(520px, 42vw); width: auto; height: auto; object-fit: contain; filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,0.12)); }
+.hero-slogan-en { font-family: var(--font-display); font-size: clamp(28px, 3.2vw, 48px); font-weight: 500; line-height: 1.15; letter-spacing: -0.005em; color: #ffffff; animation: heroFadeIn 1.6s var(--ease-out) 0.3s both; text-shadow: 0 1px 8px rgba(0,0,0,0.15); }
+.hero-slogan-en em { font-style: italic; color: #ffffff; font-weight: 500; opacity: 0.9; }
+@keyframes heroFadeIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.hero-scroll-hint { position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 16px; opacity: 0.6; }
+.hero-scroll-hint span { font-family: var(--font-brand); font-size: 10px; font-weight: 600; letter-spacing: 0.35em; font-variant: small-caps; color: rgba(255,255,255,0.7); }
+.hero-scroll-line { width: 1px; height: 48px; background: rgba(255,255,255,0.3); margin-top: 12px; position: relative; overflow: hidden; }
+.hero-scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 50%; background: #ffffff; animation: scrollLine 2s ease-in-out infinite; }
+@keyframes scrollLine { 0% { top: -100%; } 50% { top: 100%; } 100% { top: 100%; } }
+.hero-vertical-text { position: absolute; top: 50%; transform: translateY(-50%); z-index: 4; writing-mode: vertical-rl; text-orientation: mixed; font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.2em; color: rgba(255,255,255,0.6); text-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+.hero-vertical-text.left { left: 40px; }
+.hero-vertical-text.right { right: 40px; }
+.section { position: relative; padding: 160px var(--container-pad); width: 100%; max-width: var(--container-max); margin: 0 auto; }
+.section-dark { background-color: var(--color-ink); color: var(--color-text-light); max-width: none; padding: 160px var(--container-pad); }
+.section-dark .eyebrow { color: var(--color-rose); }
+.section-header { margin-bottom: 96px; }
+.section-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 100px); font-weight: 500; line-height: 1; letter-spacing: -0.02em; margin-bottom: 16px; }
+.section-title em { font-style: italic; color: var(--color-wine); }
+.section-dark .section-title em { color: var(--color-rose); }
+.section-subtitle { font-family: var(--font-serif-cn); font-size: clamp(16px, 1.3vw, 20px); font-weight: 300; letter-spacing: 0.2em; opacity: 0.7; }
+.section-number { font-family: var(--font-display); font-size: 14px; font-weight: 400; letter-spacing: 0.2em; opacity: 0.4; margin-bottom: 16px; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: center; margin-bottom: 160px; }
+.story-grid.reverse { direction: rtl; }
+.story-grid.reverse > * { direction: ltr; }
+.story-image { position: relative; overflow: hidden; }
+.story-image img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; transition: transform 1.5s var(--ease-out); }
+.story-image:hover img { transform: scale(1.04); }
+.story-content { padding: 40px 0; }
+.story-content .eyebrow { font-size: 11px; letter-spacing: 0.4em; }
+.story-content h3 { font-family: var(--font-serif-cn); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.35; margin-bottom: 32px; }
+.story-content h3 em { font-family: var(--font-display); font-style: italic; font-size: 0.8em; color: var(--color-wine); display: block; margin-top: 8px; font-weight: 500; }
+.section-dark .story-content h3 em { color: var(--color-rose); }
+.story-content p { font-size: 15px; line-height: 2; opacity: 0.8; margin-bottom: 20px; font-family: var(--font-serif-cn); font-weight: 300; }
+.lifestyle-marquee-section { padding: 120px 0; text-align: center; }
+.lifestyle-marquee-wrap { position: relative; display: flex; flex-direction: column; gap: 27px; overflow: hidden; padding: 8px 0; }
+.lifestyle-row { display: flex; overflow: hidden; }
+.lifestyle-row-track { display: flex; gap: 27px; width: max-content; will-change: transform; }
+.lifestyle-row.row-left .lifestyle-row-track { animation: marqueeLeft 28s linear infinite; }
+.lifestyle-row.row-right .lifestyle-row-track { animation: marqueeRight 32s linear infinite; }
+.lifestyle-marquee-wrap:hover .lifestyle-row-track { animation-play-state: paused; }
+@keyframes marqueeLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marqueeRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.lifestyle-row-item { flex-shrink: 0; height: 360px; overflow: hidden; border-radius: 2px; cursor: zoom-in; position: relative; background-color: rgba(255, 255, 255, 0.04); transition: transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out); }
+.lifestyle-row-item:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25); }
+.lifestyle-row-item img { height: 100%; width: auto; object-fit: cover; display: block; transition: transform 1.2s var(--ease-out); }
+.lifestyle-row-item:hover img { transform: scale(1.04); }
+.lifestyle-fade { position: absolute; top: 0; bottom: 0; width: 140px; pointer-events: none; z-index: 2; }
+.lifestyle-fade.fade-left { left: 0; background: linear-gradient(to right, var(--color-ink), transparent); }
+.lifestyle-fade.fade-right { right: 0; background: linear-gradient(to left, var(--color-ink), transparent); }
+.keywords-section { padding: 120px 0; text-align: center; }
+.keywords-title { font-family: var(--font-display); font-size: clamp(32px, 4vw, 56px); font-weight: 500; margin-bottom: 80px; font-style: italic; }
+.keywords-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--color-line); }
+.section-dark .keywords-grid { border-top-color: var(--color-line-light); }
+.keyword-item { padding: 64px 40px; border-right: 1px solid var(--color-line); transition: background-color var(--dur-mid) var(--ease-out); cursor: default; }
+.section-dark .keyword-item { border-right-color: var(--color-line-light); }
+.keyword-item:last-child { border-right: none; }
+.keyword-item:hover { background-color: rgba(110, 38, 32, 0.04); }
+.section-dark .keyword-item:hover { background-color: rgba(168, 92, 88, 0.08); }
+.keyword-en { font-family: var(--font-display); font-size: clamp(48px, 5vw, 72px); font-weight: 500; font-style: italic; color: var(--color-wine); margin-bottom: 16px; }
+.section-dark .keyword-en { color: var(--color-rose); }
+.keyword-cn { font-family: var(--font-serif-cn); font-size: 20px; font-weight: 500; letter-spacing: 0.3em; margin-bottom: 24px; }
+.keyword-desc { font-size: 13px; line-height: 1.9; opacity: 0.6; font-family: var(--font-sans-cn); font-weight: 300; }
+.location-hero { position: relative; width: 100%; height: 60vh; min-height: 500px; overflow: hidden; margin-bottom: 160px; background-size: cover; background-position: center center; background-repeat: no-repeat; }
+.radial-map { position: relative; width: 100%; max-width: 700px; margin: 0 auto; aspect-ratio: 1; }
+.radial-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; border-radius: 50%; background: var(--color-wine); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--color-cream); z-index: 5; box-shadow: 0 0 60px rgba(110, 38, 32, 0.3); }
+.radial-center span { font-family: var(--font-serif-cn); font-size: 14px; letter-spacing: 0.2em; font-weight: 500; }
+.radial-center em { font-family: var(--font-display); font-style: italic; font-size: 11px; letter-spacing: 0.1em; opacity: 0.7; margin-top: 2px; }
+.radial-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid var(--color-wine); border-radius: 50%; opacity: 0.2; }
+.radial-ring.r1 { width: 40%; height: 40%; }
+.radial-ring.r2 { width: 65%; height: 65%; opacity: 0.12; }
+.radial-ring.r3 { width: 90%; height: 90%; opacity: 0.08; }
+.radial-item { position: absolute; display: flex; align-items: center; gap: 12px; font-family: var(--font-serif-cn); font-size: 13px; z-index: 3; }
+.radial-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-wine); flex-shrink: 0; box-shadow: 0 0 0 4px rgba(110, 38, 32, 0.15); }
+.radial-item strong { font-weight: 500; display: block; font-size: 15px; }
+.radial-item small { font-family: var(--font-serif-en); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; }
+.location-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 160px; }
+.location-info-item h4 { font-family: var(--font-serif-cn); font-size: 24px; font-weight: 500; margin-bottom: 8px; display: flex; align-items: baseline; gap: 12px; }
+.location-info-item h4 em { font-family: var(--font-display); font-style: italic; font-size: 14px; color: var(--color-wine); font-weight: 500; }
+.section-dark .location-info-item h4 em { color: var(--color-rose); }
+.location-info-item p { font-size: 14px; line-height: 2; opacity: 0.7; font-family: var(--font-sans-cn); font-weight: 300; }
+.location-info-item ul { list-style: none; margin-top: 16px; }
+.location-info-item li { font-size: 13px; padding: 10px 0; border-bottom: 1px solid var(--color-line); display: flex; justify-content: space-between; font-family: var(--font-sans-cn); font-weight: 300; }
+.section-dark .location-info-item li { border-bottom-color: var(--color-line-light); }
+.location-info-item li span:last-child { opacity: 0.5; font-family: var(--font-serif-en); }
+.residence-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: end; margin-bottom: 160px; }
+.residence-hero-image { position: relative; overflow: hidden; }
+.residence-hero-image img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.residence-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--color-line); margin-bottom: 160px; }
+.section-dark .residence-feature-grid { background: var(--color-line-light); }
+.residence-feature-card { background: var(--color-bg); padding: 56px 40px; transition: background-color var(--dur-mid) var(--ease-out); cursor: default; }
+.section-dark .residence-feature-card { background: var(--color-bg-alt); }
+.residence-feature-card:hover { background: rgba(110, 38, 32, 0.03); }
+.section-dark .residence-feature-card:hover { background: rgba(168, 92, 88, 0.05); }
+.feature-icon { width: 40px; height: 40px; margin-bottom: 28px; opacity: 0.7; }
+.feature-icon svg { width: 100%; height: 100%; stroke: var(--color-wine); stroke-width: 1.5; fill: none; }
+.section-dark .feature-icon svg { stroke: var(--color-rose); }
+.residence-feature-card h4 { font-family: var(--font-serif-cn); font-size: 22px; font-weight: 500; margin-bottom: 8px; }
+.residence-feature-card h4 em { font-family: var(--font-display); font-style: italic; font-size: 13px; color: var(--color-wine); font-weight: 500; display: block; margin-top: 4px; }
+.section-dark .residence-feature-card h4 em { color: var(--color-rose); }
+.residence-feature-card p { font-size: 13px; line-height: 1.9; opacity: 0.65; font-family: var(--font-sans-cn); font-weight: 300; margin-top: 16px; }
+.product-showcase { position: relative; width: 100%; height: 80vh; min-height: 600px; overflow: hidden; margin-bottom: 160px; background-size: cover; background-position: center center; background-repeat: no-repeat; }
+.culture-timeline { position: relative; padding: 80px 0; }
+.culture-timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--color-line); transform: translateX(-50%); }
+.section-dark .culture-timeline::before { background: var(--color-line-light); }
+.timeline-item { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 120px; position: relative; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item:nth-child(even) .timeline-content { grid-column: 2; }
+.timeline-item:nth-child(odd) .timeline-content { grid-column: 1; text-align: right; }
+.timeline-item::after { content: ''; position: absolute; top: 8px; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: var(--color-wine); transform: translateX(-50%); z-index: 2; }
+.timeline-year { font-family: var(--font-display); font-size: 72px; font-weight: 500; font-style: italic; color: var(--color-wine); opacity: 0.15; line-height: 1; margin-bottom: 16px; }
+.section-dark .timeline-year { color: var(--color-rose); }
+.timeline-content h4 { font-family: var(--font-serif-cn); font-size: 26px; font-weight: 500; margin-bottom: 16px; }
+.timeline-content p { font-size: 14px; line-height: 2; opacity: 0.7; font-family: var(--font-sans-cn); font-weight: 300; }
+.gallery-entry-section { padding: 140px 0 120px; }
+.gallery-entry { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: center; min-height: 420px; cursor: pointer; position: relative; padding: 60px 0; }
+.gallery-entry-text { display: flex; flex-direction: column; gap: 28px; z-index: 2; }
+.gallery-entry-title { font-family: var(--font-display); font-size: clamp(40px, 5vw, 68px); font-weight: 500; line-height: 1.05; color: var(--color-ink); letter-spacing: -0.01em; }
+.gallery-entry-title em { font-style: italic; color: var(--color-wine); font-weight: 500; margin-left: 8px; }
+.gallery-entry-subtitle { font-family: var(--font-serif-cn); font-size: 17px; line-height: 1.8; color: var(--color-text); opacity: 0.75; letter-spacing: 0.02em; }
+.gallery-entry-btn { display: inline-flex; align-items: center; gap: 12px; width: fit-content; padding: 14px 28px; border: 1px solid var(--color-wine); border-radius: 2px; font-family: var(--font-brand); font-size: 12px; font-weight: 600; letter-spacing: 0.25em; font-variant: small-caps; color: var(--color-wine); text-transform: uppercase; transition: all var(--dur-mid) var(--ease-out); }
+.gallery-entry:hover .gallery-entry-btn { background-color: var(--color-wine); color: #ffffff; gap: 18px; }
+.gallery-entry-image { position: relative; overflow: hidden; border-radius: 2px; aspect-ratio: 4 / 3; }
+.gallery-entry-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+.gallery-entry:hover .gallery-entry-image img { transform: scale(1.04); }
+.gallery-view { position: fixed; inset: 0; z-index: 100; background-color: var(--color-cream); display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: opacity 0.5s var(--ease-out), visibility 0.5s; overflow-y: auto; }
+.gallery-view.is-open { opacity: 1; visibility: visible; }
+.gallery-view-header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 24px var(--container-pad); background-color: rgba(243, 237, 224, 0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-line); min-height: 72px; }
+.gallery-view-back { display: inline-flex; align-items: center; gap: 10px; padding: 8px 0; background: none; border: none; cursor: pointer; font-family: var(--font-brand); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; font-variant: small-caps; color: var(--color-text); text-transform: uppercase; transition: color var(--dur-mid), gap var(--dur-mid); }
+.gallery-view-back:hover { color: var(--color-wine); gap: 14px; }
+.gallery-view-title { display: flex; align-items: baseline; gap: 12px; }
+.gallery-view-title-cn { font-family: var(--font-serif-cn); font-size: 18px; font-weight: 500; color: var(--color-ink); letter-spacing: 0.15em; }
+.gallery-view-title-en { font-family: var(--font-display); font-size: 22px; font-style: italic; font-weight: 500; color: var(--color-wine); letter-spacing: 0.05em; }
+.gallery-view-filter { padding: 40px var(--container-pad) 20px; }
+.gallery-view-filter ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 32px; list-style: none; }
+.gallery-view-filter li { position: relative; padding: 10px 4px; font-family: var(--font-serif-cn); font-size: 14px; color: var(--color-text); opacity: 0.6; cursor: pointer; transition: opacity var(--dur-mid), color var(--dur-mid); white-space: nowrap; }
+.gallery-view-filter li span { font-family: var(--font-brand); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; font-variant: small-caps; text-transform: uppercase; opacity: 0.8; }
+.gallery-view-filter li:hover, .gallery-view-filter li.is-active { opacity: 1; color: var(--color-wine); }
+.gallery-view-filter li.is-active::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 20px; height: 1px; background: var(--color-wine); }
+.gallery-view-masonry { padding: 20px var(--container-pad) 80px; flex: 1; }
+.masonry { columns: 3; column-gap: 20px; }
+.masonry-item { break-inside: avoid; margin-bottom: 20px; position: relative; overflow: hidden; cursor: pointer; }
+.masonry-item img { width: 100%; height: auto; display: block; transition: transform 0.8s var(--ease-out); }
+.masonry-item:hover img { transform: scale(1.05); }
+.masonry-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(42, 31, 15, 0.6) 100%); opacity: 0; transition: opacity var(--dur-mid) var(--ease-out); display: flex; align-items: flex-end; padding: 24px; color: var(--color-cream); }
+.masonry-item:hover .masonry-overlay { opacity: 1; }
+.masonry-caption { font-family: var(--font-serif-cn); font-size: 14px; letter-spacing: 0.1em; opacity: 0; transform: translateY(10px); transition: opacity var(--dur-mid) var(--ease-out) 0.1s, transform var(--dur-mid) var(--ease-out) 0.1s; }
+.masonry-item:hover .masonry-caption { opacity: 1; transform: translateY(0); }
+.masonry-caption em { display: block; font-family: var(--font-display); font-style: italic; font-size: 12px; opacity: 0.7; margin-bottom: 4px; }
+body.gallery-view-open .nav { opacity: 0; visibility: hidden; pointer-events: none; }
+body.gallery-view-open footer { display: none; }
+.lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(20, 14, 6, 0.95); display: flex; align-items: center; justify-content: center; padding: 60px; opacity: 0; visibility: hidden; transition: opacity var(--dur-mid) var(--ease-out), visibility var(--dur-mid) var(--ease-out); }
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox-close { position: absolute; top: 32px; right: 32px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--color-cream); opacity: 0.7; transition: opacity var(--dur-fast), transform var(--dur-fast); z-index: 10; }
+.lightbox-close:hover { opacity: 1; transform: rotate(90deg); }
+.lightbox-close svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; color: var(--color-cream); opacity: 0.6; transition: opacity var(--dur-fast); z-index: 10; }
+.lightbox-nav:hover { opacity: 1; }
+.lightbox-nav.prev { left: 32px; }
+.lightbox-nav.next { right: 32px; }
+.lightbox-nav svg { width: 28px; height: 28px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+.lightbox-image-wrap { max-width: 90vw; max-height: 85vh; display: flex; align-items: center; justify-content: center; transform: scale(0.95); transition: transform var(--dur-mid) var(--ease-out); }
+.lightbox.is-open .lightbox-image-wrap { transform: scale(1); }
+.lightbox-image-wrap img { max-width: 100%; max-height: 85vh; object-fit: contain; }
+.lightbox-caption { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); color: var(--color-cream); text-align: center; opacity: 0.7; font-family: var(--font-serif-cn); font-size: 13px; letter-spacing: 0.15em; }
+.lightbox-caption em { font-family: var(--font-display); font-style: italic; font-size: 11px; opacity: 0.6; display: block; margin-top: 4px; }
+.contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; padding: 160px var(--container-pad); max-width: var(--container-max); margin: 0 auto; }
+.contact-info h2 { font-family: var(--font-display); font-size: clamp(48px, 6vw, 80px); font-weight: 500; font-style: italic; line-height: 1; margin-bottom: 16px; }
+.contact-info h2 em { color: var(--color-wine); }
+.contact-info .sub { font-family: var(--font-serif-cn); font-size: 18px; letter-spacing: 0.2em; opacity: 0.7; margin-bottom: 64px; }
+.contact-details { list-style: none; }
+.contact-details li { padding: 28px 0; border-bottom: 1px solid var(--color-line); display: flex; gap: 24px; }
+.contact-details li span:first-child { font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-wine); flex-shrink: 0; width: 100px; padding-top: 4px; }
+.contact-details li span:last-child { font-family: var(--font-serif-cn); font-size: 15px; line-height: 1.7; }
+.contact-form { background: var(--color-cream-deep); padding: 56px 48px; }
+.form-group { margin-bottom: 32px; }
+.form-group label { display: block; font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-wine); margin-bottom: 12px; }
+.form-group input, .form-group textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--color-line); padding: 12px 0; font-family: var(--font-serif-cn); font-size: 15px; color: var(--color-text); outline: none; transition: border-color var(--dur-fast); }
+.form-group input:focus, .form-group textarea:focus { border-bottom-color: var(--color-wine); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.form-submit { width: 100%; padding: 18px; background: var(--color-ink); color: var(--color-cream); font-family: var(--font-serif-cn); font-size: 14px; letter-spacing: 0.3em; border: 1px solid var(--color-ink); transition: background-color var(--dur-fast), color var(--dur-fast); }
+.form-submit:hover { background: transparent; color: var(--color-ink); }
+.footer { background: var(--color-ink); color: var(--color-text-light); padding: 80px var(--container-pad) 40px; }
+.footer-inner { max-width: var(--container-max); margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; padding-bottom: 64px; border-bottom: 1px solid var(--color-line-light); margin-bottom: 40px; }
+.footer-brand-logo { width: 180px; height: auto; margin-bottom: 24px; }
+.footer-brand-logo img { width: 100%; height: auto; display: block; filter: brightness(0) invert(1); }
+.footer-brand-name { font-family: var(--font-brand); font-size: 22px; font-weight: 600; letter-spacing: 0.15em; font-variant: small-caps; margin-bottom: 4px; }
+.footer-brand-name-cn { font-family: var(--font-serif-cn); font-size: 14px; letter-spacing: 0.4em; opacity: 0.6; margin-bottom: 24px; }
+.footer-brand-desc { font-size: 13px; line-height: 1.9; opacity: 0.5; font-family: var(--font-sans-cn); font-weight: 300; max-width: 320px; }
+.footer-col h5 { font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-rose); margin-bottom: 24px; font-weight: 500; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 14px; }
+.footer-col a { font-family: var(--font-serif-cn); font-size: 13px; opacity: 0.6; transition: opacity var(--dur-fast); }
+.footer-col a:hover { opacity: 1; color: var(--color-rose); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 11px; opacity: 0.4; font-family: var(--font-sans-cn); font-weight: 300; letter-spacing: 0.05em; }
+.location-resources-section, .culture-timeline-section { position: relative; background-color: #f5f0e8; background-size: cover; background-position: center center; background-repeat: no-repeat; }
+.location-resources-section::before, .culture-timeline-section::before { content: ''; position: absolute; inset: 0; background-color: #f5f0e8; opacity: 0.78; pointer-events: none; z-index: 0; }
+.location-resources-section > *, .culture-timeline-section > * { position: relative; z-index: 1; }
+.location-section-header { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.location-section-header .section-title { text-align: center; }
+.location-section-header .section-subtitle { text-align: center; }
+@media (max-width: 1200px) {
+  :root { --container-pad: 40px; }
+  .nav-links { gap: 32px; }
+  .story-grid { gap: 64px; }
+  .section { padding: 120px var(--container-pad); }
+}
+@media (max-width: 900px) {
+  :root { --container-pad: 24px; --nav-height: 72px; }
+  .nav-links { display: none; }
+  .hero-vertical-text { display: none; }
+  .story-grid, .story-grid.reverse { grid-template-columns: 1fr; gap: 48px; direction: ltr; }
+  .keywords-grid { grid-template-columns: 1fr; }
+  .keyword-item { border-right: none; border-bottom: 1px solid var(--color-line); }
+  .keyword-item:last-child { border-bottom: none; }
+  .location-info-grid { grid-template-columns: 1fr; gap: 48px; }
+  .residence-feature-grid { grid-template-columns: 1fr; }
+  .culture-timeline::before { left: 20px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 24px; padding-left: 56px; }
+  .timeline-item:nth-child(even) .timeline-content, .timeline-item:nth-child(odd) .timeline-content { grid-column: 1; text-align: left; }
+  .timeline-item::after { left: 20px; }
+  .masonry { columns: 2; }
+  .contact-section { grid-template-columns: 1fr; gap: 64px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .gallery-entry { grid-template-columns: 1fr; gap: 36px; padding: 40px 0; }
+  .gallery-entry-section { padding: 80px 0 60px; }
+  .culture-hero, .residence-hero { grid-template-columns: 1fr; gap: 48px; }
+  .section { padding: 80px var(--container-pad); }
+  .section-dark { padding: 80px var(--container-pad); }
+}
+@media (max-width: 600px) {
+  .masonry { columns: 1; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+function Nav({ activeSection, onNavigate, isScrolled, navDark, logoImage }) {
+  const navItems = [
+    { id: 'overview', cn: '项目概览', en: 'Overview' },
+    { id: 'location', cn: '地脉与区位', en: 'Location' },
+    { id: 'residence', cn: '产品体验', en: 'Residence' },
+    { id: 'culture', cn: '艺术风貌', en: 'Culture' },
+    { id: 'gallery', cn: '视觉馆', en: 'Gallery' },
+    { id: 'contact', cn: '联系我们', en: 'Contact' },
+  ];
+  return (
+    <nav className={`nav ${isScrolled ? 'is-scrolled' : ''} ${navDark ? 'nav-dark' : ''}`}>
+      <a className="nav-logo" href="#overview" onClick={(e) => { e.preventDefault(); onNavigate('overview'); }} aria-label="RIVA VISTA 望东潮 首页">
+        <img src={logoImage} alt="RIVA VISTA 望东潮" />
+      </a>
+      <ul className="nav-links">
+        {navItems.map((item) => (
+          <li key={item.id}>
+            <a href={`#${item.id}`} className={`nav-link ${activeSection === item.id ? 'is-active' : ''}`} onClick={(e) => { e.preventDefault(); onNavigate(item.id); }}>
+              <span className="nav-link-en">{item.en}</span>
+              {item.cn}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function Hero({ reliefImage, goldenImage, logoImage }) {
+  const canvasRef = useRef(null);
+  const heroRef = useRef(null);
+  const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0, active: false, opacity: 0, radius: 0 });
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const hero = heroRef.current;
+    if (!canvas || !hero) return;
+    const ctx = canvas.getContext('2d');
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let rafId = null;
+    let startTime = performance.now();
+    let goldenImg = null;
+    let imgReady = false;
+    let canvasW = 0, canvasH = 0, drawX = 0, drawY = 0, drawW = 0, drawH = 0;
+    const resize = () => {
+      const rect = hero.getBoundingClientRect();
+      canvasW = rect.width; canvasH = rect.height;
+      canvas.width = canvasW * dpr; canvas.height = canvasH * dpr;
+      canvas.style.width = canvasW + 'px'; canvas.style.height = canvasH + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (imgReady && goldenImg) calcDrawRect();
+    };
+    const calcDrawRect = () => {
+      const imgRatio = goldenImg.width / goldenImg.height;
+      const canvasRatio = canvasW / canvasH;
+      if (imgRatio > canvasRatio) { drawH = canvasH; drawW = drawH * imgRatio; drawX = (canvasW - drawW) / 2; drawY = 0; }
+      else { drawW = canvasW; drawH = drawW / imgRatio; drawX = 0; drawY = (canvasH - drawH) / 2; }
+    };
+    resize();
+    window.addEventListener('resize', resize);
+    goldenImg = new Image();
+    goldenImg.onload = () => { imgReady = true; calcDrawRect(); };
+    goldenImg.onerror = () => { imgReady = false; };
+    goldenImg.src = goldenImage;
+    const getPos = (clientX, clientY) => { const rect = hero.getBoundingClientRect(); return { x: clientX - rect.left, y: clientY - rect.top }; };
+    const handleMove = (clientX, clientY) => { const p = getPos(clientX, clientY); mouseRef.current.targetX = p.x; mouseRef.current.targetY = p.y; mouseRef.current.active = true; };
+    const handleMouseMove = (e) => handleMove(e.clientX, e.clientY);
+    const handleMouseEnter = (e) => { const p = getPos(e.clientX, e.clientY); mouseRef.current.x = p.x; mouseRef.current.y = p.y; mouseRef.current.targetX = p.x; mouseRef.current.targetY = p.y; mouseRef.current.active = true; };
+    const handleMouseLeave = () => { mouseRef.current.active = false; };
+    const handleTouchMove = (e) => { if (e.touches.length > 0) handleMove(e.touches[0].clientX, e.touches[0].clientY); };
+    const handleTouchStart = (e) => { if (e.touches.length > 0) { const p = getPos(e.touches[0].clientX, e.touches[0].clientY); mouseRef.current.x = p.x; mouseRef.current.y = p.y; mouseRef.current.targetX = p.x; mouseRef.current.targetY = p.y; mouseRef.current.active = true; } };
+    const handleTouchEnd = () => { mouseRef.current.active = false; };
+    hero.addEventListener('mousemove', handleMouseMove);
+    hero.addEventListener('mouseenter', handleMouseEnter);
+    hero.addEventListener('mouseleave', handleMouseLeave);
+    hero.addEventListener('touchmove', handleTouchMove, { passive: true });
+    hero.addEventListener('touchstart', handleTouchStart, { passive: true });
+    hero.addEventListener('touchend', handleTouchEnd);
+    const animate = () => {
+      try {
+        const now = performance.now();
+        const elapsed = (now - startTime) / 1000;
+        const m = mouseRef.current;
+        m.x += (m.targetX - m.x) * 0.1;
+        m.y += (m.targetY - m.y) * 0.1;
+        const targetOpacity = m.active ? 1 : 0;
+        m.opacity += (targetOpacity - m.opacity) * 0.06;
+        const baseR = Math.min(canvasW, canvasH) * 0.35;
+        const breathR = baseR * (1 + Math.sin(elapsed * 0.8) * 0.05);
+        m.radius += (breathR - m.radius) * 0.08;
+        ctx.clearRect(0, 0, canvasW, canvasH);
+        if (m.opacity > 0.01 && imgReady && goldenImg && goldenImg.complete && goldenImg.naturalWidth > 0) {
+          const cx = m.x, cy = m.y, r = m.radius;
+          ctx.save();
+          ctx.globalAlpha = m.opacity;
+          ctx.beginPath();
+          const SEGMENTS = 120;
+          for (let i = 0; i <= SEGMENTS; i++) {
+            const angle = (i / SEGMENTS) * Math.PI * 2;
+            const wave = Math.sin(angle * 6 + elapsed * 0.7) * r * 0.08 + Math.sin(angle * 10 + elapsed * 1.1 + 2.3) * r * 0.045 + Math.sin(angle * 4 + elapsed * 0.45 + 4.1) * r * 0.055 + Math.sin(angle * 13 + elapsed * 1.6 + 1.0) * r * 0.025;
+            const edgeR = r + wave;
+            const px = cx + Math.cos(angle) * edgeR;
+            const py = cy + Math.sin(angle) * edgeR;
+            if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+          }
+          ctx.closePath();
+          ctx.clip();
+          ctx.drawImage(goldenImg, drawX, drawY, drawW, drawH);
+          ctx.globalCompositeOperation = 'destination-in';
+          const grad = ctx.createRadialGradient(cx, cy, r * 0.4, cx, cy, r * 1.0);
+          grad.addColorStop(0, 'rgba(0, 0, 0, 1)');
+          grad.addColorStop(0.45, 'rgba(0, 0, 0, 0.9)');
+          grad.addColorStop(0.75, 'rgba(0, 0, 0, 0.5)');
+          grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+          ctx.fillStyle = grad;
+          ctx.fillRect(cx - r * 1.2, cy - r * 1.2, r * 2.4, r * 2.4);
+          ctx.restore();
+        }
+      } catch (e) { console.warn('[Hero canvas] animation error:', e); }
+      rafId = requestAnimationFrame(animate);
+    };
+    rafId = requestAnimationFrame(animate);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', resize);
+      hero.removeEventListener('mousemove', handleMouseMove);
+      hero.removeEventListener('mouseenter', handleMouseEnter);
+      hero.removeEventListener('mouseleave', handleMouseLeave);
+      hero.removeEventListener('touchmove', handleTouchMove);
+      hero.removeEventListener('touchstart', handleTouchStart);
+      hero.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [goldenImage]);
+  return (
+    <section className="hero" id="overview" ref={heroRef}>
+      <div className="hero-bg" style={{ backgroundImage: `url(${reliefImage})` }}></div>
+      <canvas ref={canvasRef} className="hero-canvas-overlay" aria-hidden="true"></canvas>
+      <div className="hero-vertical-text left">Shanghai · Yangpu · Riverside</div>
+      <div className="hero-vertical-text right">Est. Badai · 八埭头地块</div>
+      <div className="hero-content">
+        <div className="hero-logo-wrap"><img src={logoImage} alt="RIVA VISTA 望东潮" className="hero-logo" /></div>
+        <p className="hero-slogan-en">The first sight <em>of Shanghai</em></p>
+      </div>
+      <div className="hero-scroll-hint"><span>Scroll</span><div className="hero-scroll-line"></div></div>
+    </section>
+  );
+}
+
+const LIFESTYLE_ROW_1 = [
+  { key: 'lifestyle1', title: '江畔晨光', en: 'Morning by the River' },
+  { key: 'lifestyle2', title: '艺术厅堂', en: 'Artistic Living Hall' },
+  { key: 'lifestyle3', title: '露台私宴', en: 'Terrace Dinner' },
+  { key: 'lifestyle4', title: '书阁沉思', en: 'Library Contemplation' },
+];
+const LIFESTYLE_ROW_2 = [
+  { key: 'lifestyle5', title: '泳池午后', en: 'Afternoon Poolside' },
+  { key: 'lifestyle6', title: '城市黄昏', en: 'Urban Dusk' },
+  { key: 'lifestyle7', title: '夜色奢享', en: 'Night Indulgence' },
+  { key: 'lifestyle8', title: '江景书房', en: 'Riverview Study' },
+];
+
+function Overview({ images, onImageClick }) {
+  const keywords = [
+    { en: 'Heritage', cn: '风 貌', desc: '百年八埭头石库门里弄的城市肌理，在更新中保留历史温度，让海派文化与当代居住共生。' },
+    { en: 'Modern', cn: '摩 登', desc: '立于滨江世界会客厅前沿，以国际化建筑语言与精奢生活方式，对话全球都会居住标准。' },
+    { en: 'Living', cn: '生 活', desc: '精奢与烟火之间的从容尺度，在一线江景与里弄烟火的交融中，构筑有温度的高端生活。' },
+  ];
+  const allLifestyle = [...LIFESTYLE_ROW_1, ...LIFESTYLE_ROW_2];
+  const handleImageClick = (e, key) => {
+    e.stopPropagation();
+    const items = allLifestyle.map((item) => ({ id: item.key, title: item.title, en: item.en, img: images[item.key], category: 'lifestyle' }));
+    const index = items.findIndex((i) => i.id === key);
+    onImageClick(items, index);
+  };
+  const renderRow = (rowData, direction, duration) => {
+    const doubled = [...rowData, ...rowData];
+    return (
+      <div className={`lifestyle-row ${direction}`} style={{ '--marquee-duration': `${duration}s` }}>
+        <div className="lifestyle-row-track">
+          {doubled.map((item, i) => (
+            <div className="lifestyle-row-item" key={`${item.key}-${i}`} onClick={(e) => handleImageClick(e, item.key)} role="button" tabIndex={0}>
+              <img src={images[item.key]} alt={item.title} loading="lazy" decoding="async" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+  return (
+    <>
+      <section className="section" id="overview-story">
+        <div className="story-grid reveal">
+          <div className="story-image"><img src={images.shikumen} alt="八埭头石库门里弄" /></div>
+          <div className="story-content">
+            <div className="eyebrow-row"><span className="eyebrow">Heritage · 地脉溯源</span></div>
+            <h3>百年八埭头<em>A Century of Badai Toutou</em></h3>
+            <p>八埭头，始于二十世纪初的石库门里弄集群，是杨浦滨江最早的市民聚居地之一。八条石库门里弄依次排布，「八埭」之名由此而来。</p>
+            <p>这里曾是沪东最繁华的商业中心，商铺林立、烟火蒸腾，承载着老上海的市井记忆与海派风骨。一个世纪后的今天，八埭头以崭新的面貌重回上海的世界舞台。</p>
+          </div>
+        </div>
+        <div className="story-grid reverse reveal">
+          <div className="story-image"><img src={images.birdview} alt="上海滨江世界会客厅" /></div>
+          <div className="story-content">
+            <div className="eyebrow-row"><span className="eyebrow">Location · 世界会客厅</span></div>
+            <h3>上海滨江 · 世界会客厅<em>The World's Parlor of Shanghai</em></h3>
+            <p>黄浦江蜿蜒流过城市心脏，杨浦滨江段正以「世界级滨水区」的定位完成蝶变。从工业遗存到文化地标，从百年老厂到艺术秀场，滨江岸线正成为上海面向世界的崭新名片。</p>
+            <p>望东潮屹立于八埭头核心地块，坐拥一线江景，对望陆家嘴天际线，既是上海百年地脉的传承者，亦是世界会客厅的主场人物。</p>
+          </div>
+        </div>
+      </section>
+      <section className="section-dark" id="overview-lifestyle">
+        <div style={{ maxWidth: '100%', margin: '0 auto', padding: '0' }}>
+          <div className="lifestyle-marquee-section reveal">
+            <div className="eyebrow-row" style={{ justifyContent: 'center', marginBottom: '48px' }}><span className="eyebrow" style={{ color: 'var(--color-rose)' }}>Lifestyle · 生活美学</span></div>
+            <div className="lifestyle-marquee-wrap">
+              {renderRow(LIFESTYLE_ROW_1, 'row-left', 28)}
+              {renderRow(LIFESTYLE_ROW_2, 'row-right', 32)}
+              <div className="lifestyle-fade fade-left"></div>
+              <div className="lifestyle-fade fade-right"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="keywords-section reveal">
+          <h2 className="keywords-title">Three Pillars of <em style={{ color: 'var(--color-wine)' }}>Riva Vista</em></h2>
+          <div className="keywords-grid">
+            {keywords.map((kw, i) => (
+              <div className="keyword-item" key={kw.cn}>
+                <div className="keyword-en">{kw.en}</div>
+                <div className="keyword-cn">{kw.cn}</div>
+                <p className="keyword-desc">{kw.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Location({ images }) {
+  const radialItems = [
+    { angle: -60, distance: 32, title: '陆家嘴 CBD', en: 'Lujiazui CBD' },
+    { angle: -20, distance: 22, title: '北外滩', en: 'North Bund' },
+    { angle: 25, distance: 18, title: '杨浦滨江', en: 'Yangpu Riverside' },
+    { angle: 65, distance: 28, title: '五角场商圈', en: 'Wujiaochang' },
+    { angle: 110, distance: 35, title: '复旦大学', en: 'Fudan University' },
+    { angle: 155, distance: 25, title: '上海站', en: 'Shanghai Railway' },
+    { angle: -110, distance: 30, title: '外滩', en: 'The Bund' },
+    { angle: -150, distance: 38, title: '人民广场', en: "People's Square" },
+  ];
+  const infoItems = [
+    { title: '黄浦江滨江资源', en: 'Riverside', desc: '坐拥黄浦江一线江景，对望陆家嘴天际线，滨江步道延伸至门前，独享世界级水岸生活。' },
+    { title: '立体交通网络', en: 'Transportation', items: [{ name: '杨浦大桥', val: '5min' }, { name: '大连路隧道', val: '8min' }, { name: '地铁 12 号线', val: '600m' }, { name: '浦东机场', val: '35min' }, { name: '虹桥枢纽', val: '40min' }] },
+    { title: '文化商业配套', en: 'Lifestyle', items: [{ name: '渔人码头', val: '300m' }, { name: '绿之丘艺术中心', val: '500m' }, { name: '杨树浦电厂', val: '800m' }, { name: '五角场商圈', val: '3km' }, { name: '北外滩来福士', val: '4km' }] },
+  ];
+  return (
+    <section id="location">
+      <div className="location-hero" style={{ backgroundImage: `url(${images.locStreet})` }}></div>
+      <div className="section location-resources-section" style={{ backgroundImage: `url(${images.mapTexture})` }}>
+        <div className="section-header reveal location-section-header">
+          <div className="eyebrow-row" style={{ justifyContent: 'center' }}><span className="eyebrow">Radiating Resources · 资源辐射</span></div>
+          <div className="section-number" style={{ textAlign: 'center' }}>— 02</div>
+          <h2 className="section-title" style={{ textAlign: 'center' }}>向外辐射的<em>都会丰盛</em></h2>
+          <p className="section-subtitle" style={{ textAlign: 'center' }}>以八埭头为原点，丰盛资源层层铺展</p>
+        </div>
+        <div className="radial-map reveal">
+          <div className="radial-ring r1"></div><div className="radial-ring r2"></div><div className="radial-ring r3"></div>
+          <div className="radial-center"><span>望东潮</span><em>Riva Vista</em></div>
+          {radialItems.map((item) => {
+            const rad = (item.angle * Math.PI) / 180;
+            const x = 50 + item.distance * Math.cos(rad);
+            const y = 50 + item.distance * Math.sin(rad);
+            const isLeft = Math.abs(item.angle) > 90;
+            return (
+              <div key={item.title} className="radial-item" style={{ left: `${x}%`, top: `${y}%`, transform: `translate(-50%, -50%) ${isLeft ? 'scaleX(-1)' : ''}` }}>
+                <div className="radial-dot" style={{ transform: isLeft ? 'scaleX(-1)' : 'none' }}></div>
+                <div style={{ transform: isLeft ? 'scaleX(-1)' : 'none' }}><strong>{item.title}</strong><small>{item.en}</small></div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="location-info-grid">
+          {infoItems.map((item, i) => (
+            <div className="location-info-item reveal" key={item.title}>
+              <h4>{item.title}<em>{item.en}</em></h4>
+              {item.desc && <p>{item.desc}</p>}
+              {item.items && (<ul>{item.items.map((it) => (<li key={it.name}><span>{it.name}</span><span>{it.val}</span></li>))}</ul>)}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Residence({ images }) {
+  const features = [
+    { title: '建筑设计', en: 'Architecture', desc: '以现代极简建筑语言，呼应海派 Art Deco 风骨。通透玻璃幕墙与天然石材立面交织，在江景天幕下勾勒隽永轮廓。', icon: (<svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 9h.01M15 9h.01" strokeLinecap="round" strokeLinejoin="round" /></svg>) },
+    { title: '空间户型', en: 'Residence', desc: '从约180㎡至400㎡多种尺度户型，大面宽横厅设计，270°环幕江景视野，每一扇窗都是一幅流动的江景画。', icon: (<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1" /><path d="M3 12h18M12 3v18" strokeLinecap="round" /></svg>) },
+    { title: '室内精奢', en: 'Interior', desc: '国际名师执笔室内空间，甄选全球顶级品牌主材。大理石、木饰面、金属质感交织，于细节处见精奢。', icon: (<svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V8l6-4 6 4v12M10 20v-6h4v6" strokeLinecap="round" strokeLinejoin="round" /></svg>) },
+    { title: '社区园林', en: 'Landscape', desc: '以「江潮·九境」为园林主题，汲取江潮涌动之灵感，打造移步异景的沉浸式景观体验。全冠移植珍稀乔木。', icon: (<svg viewBox="0 0 24 24"><path d="M12 22v-7M7 10a5 5 0 0 1 10 0c0 3-2 5-5 5s-5-2-5-5Z" strokeLinecap="round" strokeLinejoin="round" /><path d="M12 22a3 3 0 0 0 0-6" strokeLinecap="round" /></svg>) },
+    { title: '私享会所', en: 'Clubhouse', desc: '约3000㎡私享会所，涵盖恒温泳池、健身中心、私宴厅、红酒雪茄吧，为业主专属定制的社交场域。', icon: (<svg viewBox="0 0 24 24"><path d="M4 16c2 0 2-3 4-3s2 6 4 6 2-9 4-9 2 6 4 6" strokeLinecap="round" strokeLinejoin="round" /><path d="M4 20h16" strokeLinecap="round" /></svg>) },
+    { title: '旗舰产品力', en: 'Flagship', desc: '华润置地「望系」旗舰级作品，集三十年高端住宅营造之大成。以国匠精工，为上海呈献滨江人居新标杆。', icon: (<svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" strokeLinejoin="round" /></svg>) },
+  ];
+  return (
+    <section id="residence">
+      <div className="section">
+        <div className="residence-hero">
+          <div className="residence-hero-image reveal"><img src={images.living} alt="精奢室内空间" /></div>
+          <div className="reveal reveal-delay-2">
+            <div className="eyebrow-row"><span className="eyebrow">Residence · 产品体验</span></div>
+            <h2 className="section-title">江河旗舰<br /><em>滨江人居新标杆</em></h2>
+            <p className="section-subtitle" style={{ marginTop: '24px' }}>华润置地「望系」旗舰作品 · 三十年国匠精工</p>
+          </div>
+        </div>
+        <div className="residence-feature-grid reveal">
+          {features.map((f) => (<div className="residence-feature-card" key={f.title}><div className="feature-icon">{f.icon}</div><h4>{f.title}<em>{f.en}</em></h4><p>{f.desc}</p></div>))}
+        </div>
+      </div>
+      <div className="product-showcase" style={{ backgroundImage: `url(${images.locFashion})` }}></div>
+      <div className="section">
+        <div className="story-grid reveal">
+          <div className="story-image"><img src={images.bedroom} alt="主卧空间" /></div>
+          <div className="story-content">
+            <span className="eyebrow">Interior · 精奢室内</span>
+            <h3>于方寸之间，见精奢本色<em>Precision in Every Detail</em></h3>
+            <p>甄选意大利天然大理石、北美黑胡桃木饰面、德国顶级厨卫品牌，每一寸空间都经过反复推敲。从入户玄关的仪式感，到主卧套房的尊崇感，生活的每一个维度都被悉心照料。</p>
+            <p>270°环幕落地窗，让黄浦江的朝暮晨昏，成为家中最动人的画卷。</p>
+          </div>
+        </div>
+        <div className="story-grid reverse reveal">
+          <div className="story-image"><img src={images.bathroom} alt="卫浴空间" /></div>
+          <div className="story-content">
+            <span className="eyebrow">Bathroom · 私享卫浴</span>
+            <h3>江景之上的私享仪式<em>Private Ritual Above the River</em></h3>
+            <p>独立浴缸正对江景落地窗，在水汽氤氲中眺望城市天际线。全大理石墙面地面，配合黄铜五金细节，以五星级酒店标准，筑就私属水疗空间。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Culture({ images }) {
+  const timelineItems = [
+    { year: '1920s', title: '八埭头初兴', desc: '二十世纪二十年代，八埭头石库门里弄集群建成，沪东最早的市民聚居地与商业中心形成。石库门的青砖黛瓦里，海派市民文化在此生根。' },
+    { year: '1950s', title: '工业时代的繁华', desc: '杨浦滨江成为中国近代工业摇篮，纺织厂、造船厂、电厂林立。八埭头因产业工人聚集而盛极一时，商业繁华被誉为「沪东南京路」。' },
+    { year: '2010s', title: '滨江更新启动', desc: '上海启动「黄浦江两岸综合开发」，杨浦滨江由工业岸线向生活岸线转型。老厂房变身艺术地标，工业遗存活化为城市公共空间。' },
+    { year: '2024', title: '望东潮启幕', desc: '华润置地携「望系」旗舰作品登临八埭头。在百年地脉之上，以世界眼光打造滨江人居标杆，让历史与未来在此交汇。' },
+  ];
+  return (
+    <section id="culture">
+      <section className="section-dark">
+        <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '0 var(--container-pad)' }}>
+          <div className="culture-hero">
+            <div className="culture-hero-image reveal"><img src={images.shikumenDetail} alt="石库门建筑细节" /></div>
+            <div className="reveal reveal-delay-2">
+              <div className="eyebrow-row"><span className="eyebrow">Culture · 艺术风貌</span></div>
+              <h2 className="section-title">石库门里的<em>海派烟火</em></h2>
+              <p className="section-subtitle" style={{ marginTop: '24px' }}>百年里弄，见证上海的前世今生</p>
+              <p style={{ marginTop: '32px', fontSize: '14px', lineHeight: 2, opacity: 0.7, fontFamily: 'var(--font-sans-cn)', fontWeight: 300, maxWidth: '480px' }}>石库门是上海的城市基因。中西合璧的建筑形态、里弄街坊的邻里温情、精致讲究的生活方式，共同构成了海派文化的底色。望东潮立于八埭头百年地脉之上，既保留石库门的历史肌理，又以当代建筑语言续写这座城市的居住理想。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="section culture-timeline-section" style={{ backgroundImage: `url(${images.mapTexture})` }}>
+        <div className="section-header reveal location-section-header">
+          <div className="section-number" style={{ textAlign: 'center' }}>— 04</div>
+          <h2 className="section-title" style={{ textAlign: 'center' }}>百年地脉，<em>一座城的记忆</em></h2>
+          <p className="section-subtitle" style={{ textAlign: 'center' }}>从石库门里弄到世界会客厅</p>
+        </div>
+        <div className="culture-timeline">
+          {timelineItems.map((item, i) => (<div className="timeline-item reveal" key={item.year}><div className="timeline-content"><div className="timeline-year">{item.year}</div><h4>{item.title}</h4><p>{item.desc}</p></div></div>))}
+        </div>
+      </div>
+      <section className="section-dark">
+        <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '0 var(--container-pad)' }}>
+          <div className="story-grid" style={{ marginBottom: 0 }}>
+            <div className="story-image reveal"><img src={images.garden} alt="社区园林" /></div>
+            <div className="story-content reveal reveal-delay-2">
+              <span className="eyebrow">Lifestyle · 精奢烟火</span>
+              <h3 style={{ color: 'var(--color-text-light)' }}>精奢之上，烟火人间<em style={{ color: 'var(--color-rose)' }}>Luxury & Livelihood</em></h3>
+              <p style={{ color: 'rgba(243, 237, 224, 0.75)' }}>真正的高端生活，从不脱离烟火气。八埭头百年积淀的市井温度，与国际化精奢居住在此交融——出门是里弄的烟火人情，归家是私享的尊崇静谧。</p>
+              <p style={{ color: 'rgba(243, 237, 224, 0.75)' }}>项目规划文化艺术中心、跨界艺术展厅，持续引入高水准艺术展览与文化活动，让艺术走入日常，打造有温度的高端社区文化。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  );
+}
+
+const GALLERY_DATA = [
+  { id: 'a1', category: 'architecture', title: '建筑主立面', en: 'Main Facade', imgKey: 'arch1' },
+  { id: 'a2', category: 'architecture', title: '仰视建筑', en: "Worm's Eye View", imgKey: 'arch2' },
+  { id: 'a3', category: 'architecture', title: '入户大堂', en: 'Grand Lobby', imgKey: 'arch3' },
+  { id: 'r1', category: 'riverview', title: '陆家嘴天际线', en: 'Lujiazui Skyline', imgKey: 'river1' },
+  { id: 'r2', category: 'riverview', title: '滨江夜景', en: 'Riverside Night', imgKey: 'river2' },
+  { id: 'r3', category: 'riverview', title: '滨江步道', en: 'Riverside Walk', imgKey: 'river3' },
+  { id: 's1', category: 'sketch', title: '建筑剖面手稿', en: 'Section Sketch', imgKey: 'sketch1' },
+  { id: 's2', category: 'sketch', title: '室内空间手稿', en: 'Interior Sketch', imgKey: 'sketch2' },
+  { id: 's3', category: 'sketch', title: '立面细节手稿', en: 'Facade Detail Sketch', imgKey: 'sketch3' },
+  { id: 'h1', category: 'handdraft', title: '概念推导草图', en: 'Concept Draft', imgKey: 'draft1' },
+  { id: 'h2', category: 'handdraft', title: '轴测分析图', en: 'Axonometric Analysis', imgKey: 'draft2' },
+  { id: 'h3', category: 'handdraft', title: '场地分析草图', en: 'Site Analysis', imgKey: 'draft3' },
+  { id: 'v1', category: 'video', title: '项目宣传片', en: 'Promo Film', imgKey: 'video1' },
+  { id: 'v2', category: 'video', title: '航拍滨江', en: 'Aerial River', imgKey: 'video2' },
+  { id: 'v3', category: 'video', title: '外滩夜景延时', en: 'Bund Night Timelapse', imgKey: 'video3' },
+  { id: 'u1', category: 'urbansketch', title: '石库门里弄', en: 'Shikumen Lane', imgKey: 'urban1' },
+  { id: 'u2', category: 'urbansketch', title: '武康路洋房', en: 'Wukang Road Villa', imgKey: 'urban2' },
+  { id: 'u3', category: 'urbansketch', title: '弄堂生活', en: 'Lane Life', imgKey: 'urban3' },
+];
+const GALLERY_FILTERS = [
+  { key: 'all', label: '全部', en: 'All' },
+  { key: 'architecture', label: '效果图', en: 'Renderings' },
+  { key: 'riverview', label: '江景实景', en: 'River View' },
+  { key: 'sketch', label: '视觉手稿', en: 'Sketches' },
+  { key: 'handdraft', label: '手绘推导', en: 'Draft & Analysis' },
+  { key: 'video', label: '宣传片', en: 'Video' },
+  { key: 'urbansketch', label: '城市取景', en: 'Urban Sketch' },
+];
+
+function GalleryEntry({ images, onOpen }) {
+  return (
+    <section className="section gallery-entry-section" id="gallery">
+      <div className="gallery-entry reveal" onClick={onOpen} role="button" tabIndex={0}>
+        <div className="gallery-entry-text">
+          <div className="eyebrow-row"><span className="eyebrow">Gallery · 视觉馆</span></div>
+          <h2 className="gallery-entry-title">视觉馆<em>｜GALLERY</em></h2>
+          <p className="gallery-entry-subtitle">效果图 · 江景实景 · 视觉手稿 · 手绘推导草图<br />宣传片 · 城市取景草图</p>
+          <div className="gallery-entry-btn"><span>进入视觉馆</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+        </div>
+        <div className="gallery-entry-image"><img src={images.galleryCover} alt="Riva Vista 视觉馆封面" /><div className="gallery-entry-image-overlay"></div></div>
+      </div>
+    </section>
+  );
+}
+
+function GalleryView({ isOpen, onClose, images, onImageClick }) {
+  const [activeFilter, setActiveFilter] = useState('all');
+  useEffect(() => {
+    if (isOpen) { document.body.style.overflow = 'hidden'; document.body.classList.add('gallery-view-open'); setActiveFilter('all'); window.scrollTo({ top: 0, behavior: 'auto' }); }
+    else { document.body.style.overflow = ''; document.body.classList.remove('gallery-view-open'); }
+    return () => { document.body.style.overflow = ''; document.body.classList.remove('gallery-view-open'); };
+  }, [isOpen]);
+  useEffect(() => { if (!isOpen) return; const handleKey = (e) => { if (e.key === 'Escape') onClose(); }; window.addEventListener('keydown', handleKey); return () => window.removeEventListener('keydown', handleKey); }, [isOpen, onClose]);
+  const getImgUrl = (imgKey) => images[imgKey] || images.arch1;
+  const filteredItems = activeFilter === 'all' ? GALLERY_DATA : GALLERY_DATA.filter(item => item.category === activeFilter);
+  const handleItemClick = (item) => { const itemsWithImages = filteredItems.map(i => ({ ...i, img: getImgUrl(i.imgKey) })); const currentIndex = itemsWithImages.findIndex(i => i.id === item.id); onImageClick(itemsWithImages, currentIndex); };
+  if (!isOpen) return null;
+  return (
+    <div className={`gallery-view ${isOpen ? 'is-open' : ''}`}>
+      <header className="gallery-view-header">
+        <button className="gallery-view-back" onClick={onClose}><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>返回首页</span></button>
+        <div className="gallery-view-title"><span className="gallery-view-title-cn">视觉馆</span><span className="gallery-view-title-en">GALLERY</span></div>
+        <div style={{ width: '120px' }}></div>
+      </header>
+      <div className="gallery-view-filter">
+        <ul>{GALLERY_FILTERS.map((f) => (<li key={f.key} className={activeFilter === f.key ? 'is-active' : ''} onClick={() => setActiveFilter(f.key)}>{f.label} <span>/ {f.en}</span></li>))}</ul>
+      </div>
+      <div className="gallery-view-masonry">
+        <div className="masonry">{filteredItems.map((item) => (<div key={item.id} className="masonry-item" onClick={() => handleItemClick(item)}><img src={getImgUrl(item.imgKey)} alt={item.title} loading="lazy" /><div className="masonry-overlay"><div className="masonry-caption"><em>{item.en}</em>{item.title}</div></div></div>))}</div>
+      </div>
+    </div>
+  );
+}
+
+function Lightbox({ isOpen, items, currentIndex, onClose, onPrev, onNext }) {
+  useEffect(() => { const handleKeyDown = (e) => { if (!isOpen) return; if (e.key === 'Escape') onClose(); if (e.key === 'ArrowLeft') onPrev(); if (e.key === 'ArrowRight') onNext(); }; window.addEventListener('keydown', handleKeyDown); return () => window.removeEventListener('keydown', handleKeyDown); }, [isOpen, onClose, onPrev, onNext]);
+  useEffect(() => { if (isOpen) { document.body.style.overflow = 'hidden'; } else { document.body.style.overflow = ''; } return () => { document.body.style.overflow = ''; }; }, [isOpen]);
+  if (!items || items.length === 0) return null;
+  const current = items[currentIndex] || items[0];
+  const handleBackdropClick = (e) => { if (e.target === e.currentTarget) onClose(); };
+  return (
+    <div className={`lightbox ${isOpen ? 'is-open' : ''}`} onClick={handleBackdropClick} role="dialog" aria-modal="true">
+      <button className="lightbox-close" onClick={onClose} aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg></button>
+      <button className="lightbox-nav prev" onClick={onPrev} aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
+      <button className="lightbox-nav next" onClick={onNext} aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
+      <div className="lightbox-image-wrap"><img src={current.img} alt={current.title} /></div>
+      <div className="lightbox-caption">{current.title}<em>{current.en} · {currentIndex + 1} / {items.length}</em></div>
+    </div>
+  );
+}
+
+function Contact() {
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const handleChange = (e) => { const { name, value } = e.target; setFormData((prev) => ({ ...prev, [name]: value })); };
+  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => setSubmitted(false), 3000); setFormData({ name: '', phone: '', email: '', message: '' }); };
+  const details = [
+    { label: 'Address', value: '上海市杨浦区八埭头滨江板块\n望东潮生活美学馆' },
+    { label: 'Phone', value: '021 - 6888 8888' },
+    { label: 'Email', value: 'rivavista@shanghai.com' },
+    { label: 'Hours', value: '每日 10:00 — 20:00\n（需提前预约参观）' },
+  ];
+  return (
+    <section className="contact-section" id="contact">
+      <div className="contact-info reveal">
+        <div className="eyebrow-row"><span className="eyebrow">Contact · 联系我们</span></div>
+        <h2>预约<em>品鉴</em></h2>
+        <p className="sub">望东潮生活美学馆 · 敬邀品鉴</p>
+        <ul className="contact-details">{details.map((d) => (<li key={d.label}><span>{d.label}</span><span style={{ whiteSpace: 'pre-line' }}>{d.value}</span></li>))}</ul>
+      </div>
+      <div className="contact-form reveal reveal-delay-2">
+        <form onSubmit={handleSubmit}>
+          <div className="form-row">
+            <div className="form-group"><label htmlFor="name">姓名 / Name</label><input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required /></div>
+            <div className="form-group"><label htmlFor="phone">电话 / Phone</label><input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required /></div>
+          </div>
+          <div className="form-group"><label htmlFor="email">邮箱 / Email</label><input type="email" id="email" name="email" value={formData.email} onChange={handleChange} /></div>
+          <div className="form-group"><label htmlFor="message">留言 / Message</label><textarea id="message" name="message" value={formData.message} onChange={handleChange} rows="3" placeholder="请告知您感兴趣的户型或其他需求..."></textarea></div>
+          <button type="submit" className="form-submit">{submitted ? '提交成功 / Submitted' : '预约参观 / Book a Visit'}</button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+function Footer({ onNavigate, logoImage }) {
+  const handleClick = (e, id) => { e.preventDefault(); onNavigate(id); };
+  const navLinks = [
+    { id: 'overview', cn: '项目概览' }, { id: 'location', cn: '地脉与区位' }, { id: 'residence', cn: '产品体验' }, { id: 'culture', cn: '艺术风貌' }, { id: 'gallery', cn: '视觉馆' }, { id: 'contact', cn: '联系我们' },
+  ];
+  const services = ['预约参观', '户型咨询', '媒体合作', '人才招聘'];
+  return (
+    <footer className="footer">
+      <div className="footer-inner">
+        <div className="footer-top">
+          <div className="footer-brand">
+            <div className="footer-brand-logo"><img src={logoImage} alt="RIVA VISTA 望东潮" /></div>
+            <p className="footer-brand-name">RIVA VISTA</p>
+            <p className="footer-brand-name-cn">望 东 潮</p>
+            <p className="footer-brand-desc">华润置地「望系」旗舰作品，上海八埭头滨江核心地块。世界望见上海的第一眼。</p>
+          </div>
+          <div className="footer-col"><h5>Navigation</h5><ul>{navLinks.map((link) => (<li key={link.id}><a href={`#${link.id}`} onClick={(e) => handleClick(e, link.id)}>{link.cn}</a></li>))}</ul></div>
+          <div className="footer-col"><h5>Services</h5><ul>{services.map((s) => (<li key={s}><a href="#contact" onClick={(e) => handleClick(e, 'contact')}>{s}</a></li>))}</ul></div>
+          <div className="footer-col"><h5>Contact</h5><ul><li><a href="tel:02168888888">021 - 6888 8888</a></li><li><a href="mailto:rivavista@shanghai.com">rivavista@shanghai.com</a></li><li>上海市杨浦区八埭头</li><li>每日 10:00 — 20:00</li></ul></div>
+        </div>
+        <div className="footer-bottom"><span>© 2024 华润置地 · 望东潮 RIVA VISTA SHANGHAI. All rights reserved.</span><span>开发商：华润置地（上海）有限公司</span></div>
+      </div>
+    </footer>
+  );
+}
+
+function App() {
+  const [activeSection, setActiveSection] = useState('overview');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [navDark, setNavDark] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxItems, setLightboxItems] = useState([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const images = {
+    logoVertical: 'assets/logo/logo-vertical-transparent.png',
+    heroRelief: 'assets/images/hero-relief-dark.jpg',
+    heroGolden: 'assets/images/hero-golden.jpg',
+    heroBuilding: 'assets/content/hero-building.jpg',
+    living: 'assets/content/living.jpg',
+    shikumen: 'assets/content/shikumen.jpg',
+    riverside: 'assets/content/riverside.jpg',
+    bedroom: 'assets/content/bedroom.jpg',
+    pool: 'assets/content/pool.jpg',
+    birdview: 'assets/content/birdview.jpg',
+    dining: 'assets/content/dining.jpg',
+    garden: 'assets/content/garden.jpg',
+    shikumenDetail: 'assets/content/shikumen-detail.jpg',
+    bathroom: 'assets/content/bathroom.jpg',
+    nightView: 'assets/content/night-view.jpg',
+    locFashion: 'assets/location/loc-fashion.jpg',
+    locStreet: 'assets/location/loc-street.jpg',
+    mapTexture: 'assets/location/map-texture.jpg',
+    galleryCover: 'assets/content/gallery-cover.jpg',
+    lifestyle1: 'assets/lifestyle/lifestyle-1.jpg',
+    lifestyle2: 'assets/lifestyle/lifestyle-2.jpg',
+    lifestyle3: 'assets/lifestyle/lifestyle-3.jpg',
+    lifestyle4: 'assets/lifestyle/lifestyle-4.jpg',
+    lifestyle5: 'assets/lifestyle/lifestyle-5.jpg',
+    lifestyle6: 'assets/lifestyle/lifestyle-6.jpg',
+    lifestyle7: 'assets/lifestyle/lifestyle-7.jpg',
+    lifestyle8: 'assets/lifestyle/lifestyle-8.jpg',
+    arch1: 'assets/gallery/arch1.jpg', arch2: 'assets/gallery/arch2.jpg', arch3: 'assets/gallery/arch3.jpg',
+    river1: 'assets/gallery/river1.jpg', river2: 'assets/gallery/river2.jpg', river3: 'assets/gallery/river3.jpg',
+    sketch1: 'assets/gallery/sketch1.jpg', sketch2: 'assets/gallery/sketch2.jpg', sketch3: 'assets/gallery/sketch3.jpg',
+    draft1: 'assets/gallery/draft1.jpg', draft2: 'assets/gallery/draft2.jpg', draft3: 'assets/gallery/draft3.jpg',
+    video1: 'assets/gallery/video1.jpg', video2: 'assets/gallery/video2.jpg', video3: 'assets/gallery/video3.jpg',
+    urban1: 'assets/gallery/urban1.jpg', urban2: 'assets/gallery/urban2.jpg', urban3: 'assets/gallery/urban3.jpg',
+  };
+  useEffect(() => {
+    const sections = ['overview', 'overview-story', 'location', 'residence', 'culture', 'gallery', 'contact'];
+    const sectionMap = { 'overview': 'overview', 'overview-story': 'overview', 'location': 'location', 'residence': 'residence', 'culture': 'culture', 'gallery': 'gallery', 'contact': 'contact' };
+    const darkSections = ['overview', 'culture'];
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 80);
+      const viewportMid = scrollY + window.innerHeight * 0.35;
+      let currentId = 'overview'; let currentDark = false;
+      for (const id of sections) { const el = document.getElementById(id); if (!el) continue; const top = el.offsetTop; if (viewportMid >= top) { currentId = id; if (darkSections.includes(id)) { const elBottom = top + el.offsetHeight; if (viewportMid < elBottom) currentDark = true; } else { currentDark = false; } } }
+      setActiveSection(sectionMap[currentId] || 'overview');
+      setNavDark(currentDark);
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach((el) => { const rect = el.getBoundingClientRect(); const triggerY = window.innerHeight * 0.88; if (rect.top < triggerY && rect.bottom > 0) { el.classList.add('is-visible'); } });
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  const handleNavigate = (id) => { const el = document.getElementById(id); if (el) { const navHeight = 88; const top = el.offsetTop - navHeight + 1; window.scrollTo({ top, behavior: 'smooth' }); } };
+  const handleGalleryOpen = () => setGalleryOpen(true);
+  const handleGalleryClose = () => setGalleryOpen(false);
+  const handleImageClick = (items, index) => { setLightboxItems(items); setLightboxIndex(index); setLightboxOpen(true); };
+  const handleLightboxClose = () => setLightboxOpen(false);
+  const handleLightboxPrev = () => { setLightboxIndex((p) => (p - 1 + lightboxItems.length) % lightboxItems.length); };
+  const handleLightboxNext = () => { setLightboxIndex((p) => (p + 1) % lightboxItems.length); };
+  return (
+    <>
+      <Nav activeSection={activeSection} onNavigate={handleNavigate} isScrolled={isScrolled} navDark={navDark} logoImage={images.logoVertical} />
+      <main>
+        <Hero reliefImage={images.heroRelief} goldenImage={images.heroGolden} logoImage={images.logoVertical} />
+        <Overview images={images} onImageClick={handleImageClick} />
+        <Location images={images} />
+        <Residence images={images} />
+        <Culture images={images} />
+        <GalleryEntry images={images} onOpen={handleGalleryOpen} />
+        <Contact />
+      </main>
+      <Footer onNavigate={handleNavigate} logoImage={images.logoVertical} />
+      <GalleryView isOpen={galleryOpen} onClose={handleGalleryClose} images={images} onImageClick={handleImageClick} />
+      <Lightbox isOpen={lightboxOpen} items={lightboxItems} currentIndex={lightboxIndex} onClose={handleLightboxClose} onPrev={handleLightboxPrev} onNext={handleLightboxNext} />
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+  </script>
+</body>
+</html>
