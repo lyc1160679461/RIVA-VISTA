@@ -106,6 +106,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .story-content h3 em { font-family: var(--font-display); font-style: italic; font-size: 0.8em; color: var(--color-wine); display: block; margin-top: 8px; font-weight: 500; }
 .section-dark .story-content h3 em { color: var(--color-rose); }
 .story-content p { font-size: 15px; line-height: 2; opacity: 0.8; margin-bottom: 20px; font-family: var(--font-serif-cn); font-weight: 300; }
+.project-video-section { width: 100%; background: var(--color-ink); overflow: hidden; }
+.project-video-wrap { position: relative; width: 100%; height: 70vh; min-height: 500px; max-height: 800px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.project-video-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; width: auto; height: auto; object-fit: cover; z-index: 1; }
+.project-video-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42, 31, 15, 0.3) 0%, rgba(42, 31, 15, 0.5) 50%, rgba(42, 31, 15, 0.7) 100%); z-index: 2; }
+.project-video-content { position: relative; z-index: 3; text-align: center; color: var(--color-cream); padding: 0 40px; max-width: 800px; }
+.project-video-content .eyebrow { margin-bottom: 24px; display: inline-block; }
+.project-video-title { font-family: var(--font-display); font-size: clamp(32px, 5vw, 64px); font-weight: 500; line-height: 1.2; margin-bottom: 20px; letter-spacing: 0.02em; }
+.project-video-title em { font-family: var(--font-display); font-style: italic; color: var(--color-rose); font-weight: 500; }
+.project-video-desc { font-size: 15px; line-height: 1.8; opacity: 0.7; font-family: var(--font-serif-cn); font-weight: 300; letter-spacing: 0.05em; }
+@media (max-width: 768px) { .project-video-wrap { height: 60vh; min-height: 400px; } .project-video-content { padding: 0 24px; } }
 .lifestyle-marquee-section { padding: 120px 0; text-align: center; }
 .lifestyle-marquee-wrap { position: relative; display: flex; flex-direction: column; gap: 27px; overflow: hidden; padding: 8px 0; }
 .lifestyle-row { display: flex; overflow: hidden; }
@@ -529,6 +539,19 @@ function Overview({ images, onImageClick }) {
             <h3>上海滨江 · 世界会客厅<em>The World's Parlor of Shanghai</em></h3>
             <p>黄浦江蜿蜒流过城市心脏，杨浦滨江段正以「世界级滨水区」的定位完成蝶变。从工业遗存到文化地标，从百年老厂到艺术秀场，滨江岸线正成为上海面向世界的崭新名片。</p>
             <p>望东潮屹立于八埭头核心地块，坐拥一线江景，对望陆家嘴天际线，既是上海百年地脉的传承者，亦是世界会客厅的主场人物。</p>
+          </div>
+        </div>
+      </section>
+      <section className="project-video-section" id="overview-video">
+        <div className="project-video-wrap">
+          <video className="project-video-bg" autoPlay muted loop playsInline preload="metadata" poster="">
+            <source src="assets/videos/project-view.mp4" type="video/mp4" />
+          </video>
+          <div className="project-video-overlay"></div>
+          <div className="project-video-content">
+            <span className="eyebrow" style={{ color: 'var(--color-rose)' }}>Project View · 项目视野</span>
+            <h2 className="project-video-title">从八埭头<em>俯瞰黄浦江</em></h2>
+            <p className="project-video-desc">航拍视角 · 百年地脉与世界会客厅的交汇</p>
           </div>
         </div>
       </section>
