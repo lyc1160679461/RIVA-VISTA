@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>望东潮 RIVA VISTA SHANGHAI — 世界望见上海的第一眼</title>
+  <title>向東潮 RIVA VISTA SHANGHAI — 世界望见上海的第一眼</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="assets/images/hero-relief-dark.jpg" />
@@ -338,8 +338,8 @@ function Nav({ activeSection, onNavigate, isScrolled, navDark, logoImage }) {
   ];
   return (
     <nav className={`nav ${isScrolled ? 'is-scrolled' : ''} ${navDark ? 'nav-dark' : ''}`}>
-      <a className="nav-logo" href="#overview" onClick={(e) => { e.preventDefault(); onNavigate('overview'); }} aria-label="RIVA VISTA 望东潮 首页">
-        <img src={logoImage} alt="RIVA VISTA 望东潮" />
+      <a className="nav-logo" href="#overview" onClick={(e) => { e.preventDefault(); onNavigate('overview'); }} aria-label="RIVA VISTA 向東潮 首页">
+        <img src={logoImage} alt="RIVA VISTA 向東潮" />
       </a>
       <ul className="nav-links">
         {navItems.map((item) => (
@@ -466,7 +466,7 @@ function Hero({ reliefImage, goldenImage, logoImage }) {
       <div className="hero-vertical-text left">Shanghai · Yangpu · Riverside</div>
       <div className="hero-vertical-text right">Est. Badai · 八埭头地块</div>
       <div className="hero-content">
-        <div className="hero-logo-wrap"><img src={logoImage} alt="RIVA VISTA 望东潮" className="hero-logo" /></div>
+        <div className="hero-logo-wrap"><img src={logoImage} alt="RIVA VISTA 向東潮" className="hero-logo" /></div>
         <p className="hero-slogan-en">The first sight <em>of Shanghai</em></p>
       </div>
       <div className="hero-scroll-hint"><span>Scroll</span><div className="hero-scroll-line"></div></div>
@@ -532,7 +532,7 @@ function Overview({ images, onImageClick }) {
             <div className="eyebrow-row"><span className="eyebrow">Location · 世界会客厅</span></div>
             <h3>上海滨江 · 世界会客厅<em>The World's Parlor of Shanghai</em></h3>
             <p>黄浦江蜿蜒流过城市心脏，杨浦滨江段正以「世界级滨水区」的定位完成蝶变。从工业遗存到文化地标，从百年老厂到艺术秀场，滨江岸线正成为上海面向世界的崭新名片。</p>
-            <p>望东潮屹立于八埭头核心地块，坐拥一线江景，对望陆家嘴天际线，既是上海百年地脉的传承者，亦是世界会客厅的主场人物。</p>
+            <p>向東潮屹立于八埭头核心地块，坐拥一线江景，对望陆家嘴天际线，既是上海百年地脉的传承者，亦是世界会客厅的主场人物。</p>
           </div>
         </div>
         <section className="project-video-section" id="overview-video">
@@ -602,7 +602,7 @@ function Location({ images }) {
         </div>
         <div className="radial-map reveal">
           <div className="radial-ring r1"></div><div className="radial-ring r2"></div><div className="radial-ring r3"></div>
-          <div className="radial-center"><span>望东潮</span><em>Riva Vista</em></div>
+          <div className="radial-center"><span>向東潮</span><em>Riva Vista</em></div>
           {radialItems.map((item) => {
             const rad = (item.angle * Math.PI) / 180;
             const x = 50 + item.distance * Math.cos(rad);
@@ -683,7 +683,7 @@ function Culture({ images }) {
     { year: '1889', title: '世界看向上海的第一眼', desc: '英国记者、旅行家Henry Norman1889年乘船沿黄浦江驶入上海，当船沿着黄浦江向上行驶时，于此写下了那句著名的"The first sight of Shanghai"' },
     { year: '1950s', title: '工业时代的繁华', desc: '杨浦滨江成为中国近代工业摇篮，纺织厂、造船厂、电厂林立。八埭头因产业工人聚集而盛极一时，商业繁华被誉为「沪东南京路」。' },
     { year: '2010s', title: '滨江更新启动', desc: '上海启动「黄浦江两岸综合开发」，杨浦滨江由工业岸线向生活岸线转型。老厂房变身艺术地标，工业遗存活化为城市公共空间。' },
-    { year: '2024', title: '望东潮启幕', desc: '华润置地携「望系」旗舰作品登临八埭头。在百年地脉之上，以世界眼光打造滨江人居标杆，让历史与未来在此交汇。' },
+    { year: '2024', title: '向東潮启幕', desc: '华润置地携「望系」旗舰作品登临八埭头。在百年地脉之上，以世界眼光打造滨江人居标杆，让历史与未来在此交汇。' },
   ];
   return (
     <section id="culture">
@@ -695,7 +695,7 @@ function Culture({ images }) {
               <div className="eyebrow-row"><span className="eyebrow">Culture · 艺术风貌</span></div>
               <h2 className="section-title">石库门里的<em>海派烟火</em></h2>
               <p className="section-subtitle" style={{ marginTop: '24px' }}>百年里弄，见证上海的前世今生</p>
-              <p style={{ marginTop: '32px', fontSize: '14px', lineHeight: 2, opacity: 0.7, fontFamily: 'var(--font-sans-cn)', fontWeight: 300, maxWidth: '480px' }}>石库门是上海的城市基因。中西合璧的建筑形态、里弄街坊的邻里温情、精致讲究的生活方式，共同构成了海派文化的底色。望东潮立于八埭头百年地脉之上，既保留石库门的历史肌理，又以当代建筑语言续写这座城市的居住理想。</p>
+              <p style={{ marginTop: '32px', fontSize: '14px', lineHeight: 2, opacity: 0.7, fontFamily: 'var(--font-sans-cn)', fontWeight: 300, maxWidth: '480px' }}>石库门是上海的城市基因。中西合璧的建筑形态、里弄街坊的邻里温情、精致讲究的生活方式，共同构成了海派文化的底色。向東潮立于八埭头百年地脉之上，既保留石库门的历史肌理，又以当代建筑语言续写这座城市的居住理想。</p>
             </div>
           </div>
         </div>
@@ -825,7 +825,7 @@ function Contact() {
   const handleChange = (e) => { const { name, value } = e.target; setFormData((prev) => ({ ...prev, [name]: value })); };
   const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => setSubmitted(false), 3000); setFormData({ name: '', phone: '', email: '', message: '' }); };
   const details = [
-    { label: 'Address', value: '上海市杨浦区八埭头滨江板块\n望东潮生活美学馆' },
+    { label: 'Address', value: '上海市杨浦区八埭头滨江板块\n向東潮生活美学馆' },
     { label: 'Phone', value: '021 - 6888 8888' },
     { label: 'Email', value: 'rivavista@shanghai.com' },
     { label: 'Hours', value: '每日 10:00 — 20:00\n（需提前预约参观）' },
@@ -835,7 +835,7 @@ function Contact() {
       <div className="contact-info reveal">
         <div className="eyebrow-row"><span className="eyebrow">Contact · 联系我们</span></div>
         <h2>预约<em>品鉴</em></h2>
-        <p className="sub">望东潮生活美学馆 · 敬邀品鉴</p>
+        <p className="sub">向東潮生活美学馆 · 敬邀品鉴</p>
         <ul className="contact-details">{details.map((d) => (<li key={d.label}><span>{d.label}</span><span style={{ whiteSpace: 'pre-line' }}>{d.value}</span></li>))}</ul>
       </div>
       <div className="contact-form reveal reveal-delay-2">
@@ -864,7 +864,7 @@ function Footer({ onNavigate, logoImage }) {
       <div className="footer-inner">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="footer-brand-logo"><img src={logoImage} alt="RIVA VISTA 望东潮" /></div>
+            <div className="footer-brand-logo"><img src={logoImage} alt="RIVA VISTA 向東潮" /></div>
             <p className="footer-brand-name">RIVA VISTA</p>
             <p className="footer-brand-name-cn">望 东 潮</p>
             <p className="footer-brand-desc">华润置地「望系」旗舰作品，上海八埭头滨江核心地块。世界望见上海的第一眼。</p>
@@ -873,7 +873,7 @@ function Footer({ onNavigate, logoImage }) {
           <div className="footer-col"><h5>Services</h5><ul>{services.map((s) => (<li key={s}><a href="#contact" onClick={(e) => handleClick(e, 'contact')}>{s}</a></li>))}</ul></div>
           <div className="footer-col"><h5>Contact</h5><ul><li><a href="tel:02168888888">021 - 6888 8888</a></li><li><a href="mailto:rivavista@shanghai.com">rivavista@shanghai.com</a></li><li>上海市杨浦区八埭头</li><li>每日 10:00 — 20:00</li></ul></div>
         </div>
-        <div className="footer-bottom"><span>© 2024 华润置地 · 望东潮 RIVA VISTA SHANGHAI. All rights reserved.</span><span>开发商：华润置地（上海）有限公司</span></div>
+        <div className="footer-bottom"><span>© 2024 华润置地 · 向東潮 RIVA VISTA SHANGHAI. All rights reserved.</span><span>开发商：华润置地（上海）有限公司</span></div>
       </div>
     </footer>
   );
